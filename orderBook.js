@@ -10,6 +10,12 @@ function findMatchingOrder(existingBook, incomingOrder) {
   return updatedBook
 }
 
+function reconcileOrder(existingBook, incomingOrder) {
+  if (existingBook.length = 0) {
+    return existingBook.push(existingBook, incomingOrder)
+  }
+}
+
 function findMatchingOrder(existingBook, incomingOrder) {
   return existingBook.filter(bookItem => (bookItem.type !== incomingOrder.type) && !((bookItem.price !== incomingOrder.price) && (bookItem.quantity !== incomingOrder.quantity)))
 }
