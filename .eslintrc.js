@@ -12,20 +12,16 @@ module.exports = {
     "indent": [
       "error",
       2,
-      { "SwitchCase": 1 }
+      {
+        "SwitchCase": 1
+      }
     ],
     "linebreak-style": [
       "error",
       "unix"
     ],
-    "quotes": [
-      "error",
-      "single"
-    ],
-    "semi": [
-      "error",
-      "never"
-    ],
+    "quotes": ["error", "single"],
+    "semi": ["error", "never"],
     "camelcase": 0,
   }
 };
