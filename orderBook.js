@@ -1,4 +1,4 @@
-function getUpdatedBook(existingBook, incomingOrder) {
+function findMatchingOrder(existingBook, incomingOrder) {
   let updatedBook = []
   let correspondingOrders = existingBook.filter((item) => {
     return item.type === incomingOrder.type
@@ -10,9 +10,9 @@ function getUpdatedBook(existingBook, incomingOrder) {
   return updatedBook
 }
 
-//function findMatchingOrder(existingBook, incomingOrder) {
-// return existingBook.filter(bookItem => (bookItem.type !== incomingOrder.type) && !((bookItem.price !== incomingOrder.price) && (bookItem.quantity !== incomingOrder.quantity)))
-
+function findMatchingOrder(existingBook, incomingOrder) {
+  return existingBook.filter(bookItem => (bookItem.type !== incomingOrder.type) && !((bookItem.price !== incomingOrder.price) && (bookItem.quantity !== incomingOrder.quantity)))
+}
 
 
 function filterMatchingOrder(existingBook, incomingOrder) {
@@ -41,12 +41,14 @@ function reconcileOrder(existingBook, incomingOrder) {
     if (updatedOrder.quantity === 0) {
       return updatedBook
     } else {
-      updatedBook = [updatedBook, updatedOrder]
+      updatedBook = [...updatedBook, updatedOrder]
       return updatedBook
 
     }
-
+  } else {
+    let updatedBook = [...existingBook, incomingOrder]
+    return updatedBook
   }
-
-  module.exports = reconcileOrder
 }
+
+module.exports = reconcileOrder
